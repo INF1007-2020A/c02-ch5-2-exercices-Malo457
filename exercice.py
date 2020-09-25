@@ -39,11 +39,12 @@ def format_horizontal_histogram(histogram):
 	BLOCK_CHAR = "|"
 	LINE_CHAR = "¯"
 	hauteur = max(histogram)
-	for num in histogram:
-		if num == hauteur:
-
-
-	return ""
+	resultat = ''
+	for i in range(hauteur - 1, -1, -1):
+		for j, elem in enumerate(histogram):
+			resultat += (BLOCK_CHAR if elem >= i+ 1 else ' ') if j != 0 else ''
+		resultat += '\n'
+	return resultat + LINE_CHAR * len(histogram)
 
 
 if __name__ == "__main__":
